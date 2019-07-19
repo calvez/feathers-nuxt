@@ -3,8 +3,18 @@ import feathersVuex, { initAuth } from 'feathers-vuex';
 
 const { service, auth } = feathersVuex(feathersClient, { idField: '_id' });
 
-export const state = () => ({});
-export const mutations = {};
+export const state = () => ({
+  locales: ['hu', 'en'],
+  locale: 'hu'
+})
+
+export const mutations = {
+  SET_LANG (state, locale) {
+    if (state.locales.includes(locale)) {
+      state.locale = locale
+    }
+  }
+}
 
 export const actions = {
   nuxtServerInit({ commit, dispatch }, { req }) {
@@ -21,7 +31,7 @@ export const actions = {
 export const plugins = [
   service('users'),
   auth({
-    state: { publicPages: ['index', 'authenticate'] },
+    state: { publicPages: ['index', 'authenticate', 'products'] },
     userService: 'users'
   })
 ];

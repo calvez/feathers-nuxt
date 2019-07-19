@@ -7,19 +7,22 @@ const DataTypes = Sequelize.DataTypes;
 module.exports = function (app) {
   const sequelizeClient = app.get('sequelizeClient');
   const users = sequelizeClient.define('users', {
-    id 		      : {type: DataTypes.INTEGER, primaryKey: true },
-    website_id              : DataTypes.INTEGER,
-    email 	              : DataTypes.STRING,
-    increment_id            : DataTypes.INTEGER,
-    store_id                : DataTypes.INTEGER,
-    created_at              : DataTypes.TIME,
-    updated_at              : DataTypes.TIME,
-    is_active               : DataTypes.INTEGER,
-    firstname               : DataTypes.STRING,
-    lastname                : DataTypes.STRING,
-    password_hash           : DataTypes.STRING,
-    bidder_name             : DataTypes.STRING,
-  },{
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true
+    },
+    website_id: DataTypes.INTEGER,
+    email: DataTypes.STRING,
+    increment_id: DataTypes.INTEGER,
+    store_id: DataTypes.INTEGER,
+    created_at: DataTypes.TIME,
+    updated_at: DataTypes.TIME,
+    is_active: DataTypes.INTEGER,
+    firstname: DataTypes.STRING,
+    lastname: DataTypes.STRING,
+    password_hash: DataTypes.STRING,
+    bidder_name: DataTypes.STRING,
+  }, {
     tableName: 'sa_users',
     timestamps: false,
   }, {

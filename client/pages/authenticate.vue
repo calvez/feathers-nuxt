@@ -1,6 +1,5 @@
 <template>
   <section>
-    <navigation />
     <h1>Authenticate!</h1>
     <form class="auth-form">
       <ul>
@@ -14,11 +13,9 @@
 
 <script>
 import { mapActions } from 'vuex';
-import Navigation from '../components/navigation';
 
 export default {
   name: 'Login',
-  components: { Navigation },
 
   data() {
     return {

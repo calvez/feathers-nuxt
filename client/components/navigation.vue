@@ -1,47 +1,67 @@
 <template>
-  <ul class="navigation">
-    <li><nuxt-link exact to="/">Home</nuxt-link></li>
-    <li v-if="!isAuthenticated"><nuxt-link to="/authenticate">Authenticate</nuxt-link></li>
-    <li v-if="isAuthenticated"><nuxt-link to="/secret">Secret Section</nuxt-link></li>
-  </ul>
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        <img src="~/assets/images/logo.png" height="40" alt="Aukciók  - Helytörténet Webshop" />
+      </a>
+
+      <a
+        role="button"
+        class="navbar-burger burger"
+        aria-label="menu"
+        aria-expanded="false"
+        data-target="navbarBasicExample"
+      >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        <n-link class="navbar-item" to="/about">Home</n-link>
+
+        <n-link class="navbar-item" to="/products">{{$t("all_products")}}</n-link>
+      </div>
+
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <a class="button is-light">Log in</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Docs</a>
+
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item">Overview</a>
+            <a class="navbar-item">Elements</a>
+            <a class="navbar-item">Components</a>
+            <hr class="navbar-divider" />
+            <div class="navbar-item">Version 0.7.5</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState } from "vuex";
 
 export default {
-  name: 'Navigation',
+  name: "Navigation",
 
   computed: {
-    ...mapState('auth', ['accessToken']),
+    ...mapState("auth", ["accessToken"]),
     isAuthenticated() {
       return this.accessToken;
     }
   }
-}
+};
 </script>
 
 <style>
-.navigation {
-  border-bottom: 1px solid #F2F2F2;
-  display: flex;
-  list-style: none;
-  margin: 0 -2em 1em;
-  padding: 1em;
-}
-
-.navigation li + li {
-  margin-left: 1.5em;
-}
-
-.navigation a {
-  color: #666;
-  text-decoration: none;
-}
-
-.navigation .nuxt-link-active {
-  color: coral;
-  text-decoration: underline;
-}
 </style>
 
