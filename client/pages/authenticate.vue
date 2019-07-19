@@ -7,7 +7,7 @@
         <li><input v-model="email" placeholder="email" /></li>
         <li><input v-model="password" placeholder="password" type="password" /></li>
       </ul>
-      <button @click.prevent="login">Login</button> or <button class="ghost" @click.prevent="signup">Sign up</button>
+      <button @click.prevent="login">Login</button>
     </form>
   </section>
 </template>
@@ -22,24 +22,16 @@ export default {
 
   data() {
     return {
-      email: 'hey@silvestre.io',
+      email: 'e-mail',
       password: 'password'
     };
   },
 
   methods: {
     ...mapActions('auth', ['authenticate']),
-    ...mapActions('users', ['create']),
 
     async login() {
       const credentials = { email: this.email, password: this.password };
-      await this.authenticate({ ...credentials, strategy: 'local' });
-      this.$router.push('/secret');
-    },
-
-    async signup() {
-      const credentials = { email: this.email, password: this.password };
-      await this.create(credentials);
       await this.authenticate({ ...credentials, strategy: 'local' });
       this.$router.push('/secret');
     }

@@ -18,6 +18,8 @@ const channels = require('./channels');
 
 const authentication = require('./authentication');
 
+const sequelize = require('./sequelize');
+
 const app = express(feathers());
 
 // Load app configuration
@@ -33,6 +35,8 @@ app.use(favicon(path.join(app.get('public'), 'favicon.ico')));
 // Set up Plugins and providers
 app.configure(express.rest());
 app.configure(socketio());
+
+app.configure(sequelize);
 
 // Configure other middleware (see `middleware/index.js`)
 app.configure(middleware);
