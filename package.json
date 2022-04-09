@@ -49,7 +49,7 @@
     "feathers-sequelize": "^4.1.1",
     "feathers-vuex": "^1.6.2",
     "helmet": "^3.19.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "mysql2": "^1.6.5",
     "normalize.css": "^8.0.1",
     "nuxt": "^2.8.1",
