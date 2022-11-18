@@ -52,7 +52,7 @@
     "moment": "^2.24.0",
     "mysql2": "^1.6.5",
     "normalize.css": "^8.0.1",
-    "nuxt": "^2.8.1",
+    "nuxt": "^2.15.8",
     "nuxt-buefy": "^0.3.10",
     "sequelize": "^4.44.2",
     "serve-favicon": "^2.5.0",
